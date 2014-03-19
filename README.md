@@ -6,8 +6,8 @@ This is a Clojure library for search algorithms.
 Although it is certainly not yet industrial strength, it intends to be a performant library, meaning that these algorithms are as fast as good Clojure code can be.
 
 Currently implemented
-  - Dijkstra's algorithm
-  - A*
+  - [Dijkstra's algorithm](http://en.wikipedia.org/wiki/Dijkstra's_algorithm)
+  - [A*](http://en.wikipedia.org/wiki/A*_search_algorithm)
 
 Planned
   - IDA*
