@@ -4,7 +4,7 @@
 (defn a*
   "Calculate shortest path with A*.
 
-  Note the heuristic function must be monotonous, increasing and never overestimate 
+  Note the heuristic function must be monotonous, increasing and never overestimate
   (i.e. it must be admissible) to guarantee an optimal result.
 
   start is the first node.
@@ -14,15 +14,18 @@
   neighbors-fn is called with the node and should return all the neighbors
   max-depth is the maximum depth of the path in steps."
   [start goal?-fn distance-fn heuristic-fn neighbors-fn max-depth]
-  (loop [open (priority-map [start [start]] 0)
+  (loop [open (priority-map [start [start] 0] (heuristic-fn start))
          depth 0]
-    (let [[[node path] distance] (first open)]
+    (let [[[node path distance] total] (first open)]
       (cond (> depth max-depth) false
             (goal?-fn node) path
             :else (recur (into (pop open)
                                (for [neighbor (neighbors-fn node)]
-                                 [[neighbor
-                                   (conj path neighbor)] (+ distance (distance-fn node neighbor) (heuristic-fn neighbor))]))
+                                 (let [new-node neighbor
+                                       new-path (conj path neighbor)
+                                       new-distance (+ distance (distance-fn node neighbor))]
+                                   [[new-node new-path new-distance]
+                                    (+ new-distance (heuristic-fn neighbor))])))
                          (count path))))))
 
 (defn dijkstra
