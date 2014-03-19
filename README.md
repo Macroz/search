@@ -10,8 +10,8 @@ Currently implemented
   - [A*](http://en.wikipedia.org/wiki/A*_search_algorithm)
 
 Planned
-  - IDA*
-  - Theta*
+  - [IDA*](http://en.wikipedia.org/wiki/IDA*)
+  - [Theta*](http://en.wikipedia.org/wiki/Theta*)
 
 Example
 -------
