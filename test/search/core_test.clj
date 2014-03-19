@@ -42,3 +42,18 @@
   (is (= ["b" "a"] (dijkstra "b" (goal= "a") distance neighbors 20)))
   (is (= ["a" "d" "e" "f" "c" "j" "k"] (dijkstra "a" (goal= "k") distance neighbors 20)))
   (is (= (reverse ["a" "d" "e" "f" "c" "j" "k"]) (dijkstra "k" (goal= "a") distance neighbors 20))))
+
+(def heuristic {"a" 3
+                "b" 3
+                "c" 2
+                "d" 3
+                "e" 2
+                "f" 2
+                "g" 3
+                "h" 2
+                "i" 1
+                "j" 1
+                "k" 0})
+
+(deftest a*-tests
+  (is (= ["a" "d" "e" "f" "c" "j" "k"] (a* "a" (goal= "k") distance heuristic neighbors 20))))
