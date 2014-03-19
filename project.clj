@@ -1,4 +1,4 @@
-(defproject search "0.1.0"
+(defproject macroz/search "0.1.0"
   :description "A collection of search algorithm in Clojure"
   :url "http://github.com/Macroz/tangle"
   :license {:name "Eclipse Public License"
