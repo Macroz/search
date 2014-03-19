@@ -7,9 +7,9 @@ Although it is certainly not yet industrial strength, it intends to be a perform
 
 Currently implemented
   - Dijkstra's algorithm
+  - A*
 
 Planned
-  - A*
   - IDA*
   - Theta*
 
@@ -17,7 +17,7 @@ Example
 -------
 
 ```clj
-[macroz/search "0.1.0"]
+[macroz/search "0.2.0"]
 ```
 
 Using this example problem
