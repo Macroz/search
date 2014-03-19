@@ -4,7 +4,8 @@
 (defn a*
   "Calculate shortest path with A*.
 
-  Note the heuristic must be monotonous and increasing (i.e. admissible) for optimal result.
+  Note the heuristic function must be monotonous, increasing and never overestimate 
+  (i.e. it must be admissible) to guarantee an optimal result.
 
   start is the first node.
   goal?-fn is called for each expanded node to check whether it is a goal
