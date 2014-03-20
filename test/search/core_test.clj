@@ -57,3 +57,6 @@
 
 (deftest a*-tests
   (is (= ["a" "d" "e" "f" "c" "j" "k"] (a* "a" (goal= "k") distance heuristic neighbors 20))))
+
+(deftest ida*-tests
+  (is (= ["a" "d" "e" "f" "c" "j" "k"] (ida* "a" (goal= "k") distance heuristic neighbors))))
