@@ -17,7 +17,7 @@ Example
 -------
 
 ```clj
-[macroz/search "0.2.0"]
+[macroz/search "0.3.0"]
 ```
 
 Using this example problem
