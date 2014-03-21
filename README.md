@@ -8,9 +8,9 @@ Although it is certainly not yet industrial strength, it intends to be a perform
 Currently implemented
   - [Dijkstra's algorithm](http://en.wikipedia.org/wiki/Dijkstra's_algorithm)
   - [A*](http://en.wikipedia.org/wiki/A*_search_algorithm)
+  - [IDA*](http://en.wikipedia.org/wiki/IDA*)
 
 Planned
-  - [IDA*](http://en.wikipedia.org/wiki/IDA*)
   - [Theta*](http://en.wikipedia.org/wiki/Theta*)
 
 Example
@@ -57,7 +57,7 @@ We can represent the edges like this:
 (def paths (into paths-in-one-direction (map reverse-path paths-in-one-direction)))
 ```
 
-We can define some additional helpers.
+We can define some additional helpers functions to represent the search problem.
 
 ```clj
 (def neighbors (apply merge-with concat
@@ -72,6 +72,37 @@ Then we can invoke the search algorithm.
 
 ```clj
 (dijkstra "a" (goal= "k") distance neighbors 20)
+=> ["a" "d" "e" "f" "c" "j" "k"]
+```
+
+Also if you provide a heuristic function e.g.
+
+```clj
+def heuristic {"a" 3
+               "b" 3
+               "c" 2
+               "d" 3
+               "e" 2
+               "f" 2
+               "g" 3
+               "h" 2
+               "i" 1
+               "j" 1
+               "k" 0})
+```
+
+Then you can use A*.
+
+```clj
+(a* "a" (goal= "k") distance heuristic neighbors 20)
+=> ["a" "d" "e" "f" "c" "j" "k"]
+```
+
+Also you can search with IDA*.
+
+```clj
+(ida* "a" (goal= "k") distance heuristic neighbors))))
+=> ["a" "d" "e" "f" "c" "j" "k"]
 ```
 
 Background
