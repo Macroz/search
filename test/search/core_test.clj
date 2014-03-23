@@ -64,7 +64,7 @@
   (is (not (a* "a" (goal= "z") distance heuristic neighbors 5))))
 
 (deftest ida*-tests
-  (is (= ["a" "d"] (ida* "a" (goal= "d") distance heuristic neighbors)))
-  (is (= ["a" "d" "e" "f" "c" "j" "k"] (ida* "a" (goal= "k") distance heuristic neighbors)))
-  (is (= (reverse ["a" "d" "e" "f" "c" "j" "k"]) (ida* "k" (goal= "a") distance reverse-heuristic neighbors)))
-  (is (not (ida* "a" (goal= "z") distance heuristic neighbors))))
+  (is (= ["a" "d"] (ida* "a" (goal= "d") distance heuristic neighbors 20)))
+  (is (= ["a" "d" "e" "f" "c" "j" "k"] (ida* "a" (goal= "k") distance heuristic neighbors 20)))
+  (is (= (reverse ["a" "d" "e" "f" "c" "j" "k"]) (ida* "k" (goal= "a") distance reverse-heuristic neighbors 20)))
+  (is (not (ida* "a" (goal= "z") distance heuristic neighbors 5))))

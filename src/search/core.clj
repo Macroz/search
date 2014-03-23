@@ -42,25 +42,28 @@
 
 (defn- ida
   "Helper function for IDA* search."
-  [node path distance max-distance goal?-fn distance-fn heuristic-fn neighbors-fn]
+  [node path distance max-distance goal?-fn distance-fn heuristic-fn neighbors-fn max-depth]
   (let [new-distance (+ distance (heuristic-fn node))]
     (cond (> new-distance max-distance) new-distance
+          (> (count path) max-depth) false
           (goal?-fn node) path
           :else (loop [neighbors (neighbors-fn node)
-                       min-distance nil]
+                       min-distance false]
                   (if (empty? neighbors)
                     min-distance
                     (let [neighbor (first neighbors)
-                          result (ida neighbor (conj path neighbor) (+ distance (distance-fn node neighbor)) max-distance goal?-fn distance-fn heuristic-fn neighbors-fn)]
-                      (cond (vector? result) result
+                          result (ida neighbor (conj path neighbor) (+ distance (distance-fn node neighbor)) max-distance goal?-fn distance-fn heuristic-fn neighbors-fn max-depth)]
+                      (cond (not result) result
+                            (vector? result) result
                             (or (not min-distance)
                                 (< result min-distance)) (recur (rest neighbors) result)
                                 :else (recur (rest neighbors) min-distance))))))))
 
 (defn ida*
   "Calculate shortest path using IDA*."
-  [start goal?-fn distance-fn heuristic-fn neighbors-fn]
+  [start goal?-fn distance-fn heuristic-fn neighbors-fn max-depth]
   (loop [max-distance 1]
-    (let [result (ida start [start] 0 max-distance goal?-fn distance-fn heuristic-fn neighbors-fn)]
-      (if (vector? result) result
-          (recur result)))))
+    (let [result (ida start [start] 0 max-distance goal?-fn distance-fn heuristic-fn neighbors-fn max-depth)]
+      (cond (not result) result
+            (vector? result) result
+            :else (recur result)))))
