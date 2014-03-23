@@ -58,9 +58,11 @@
 (def reverse-heuristic (into {} (map (fn [[k v]] [k (- 3 v)]) heuristic)))
 
 (deftest a*-tests
+  (is (= ["a" "d"] (a* "a" (goal= "d") distance heuristic neighbors 20)))
   (is (= ["a" "d" "e" "f" "c" "j" "k"] (a* "a" (goal= "k") distance heuristic neighbors 20)))
   (is (= (reverse ["a" "d" "e" "f" "c" "j" "k"]) (a* "k" (goal= "a") distance reverse-heuristic neighbors 20))))
 
 (deftest ida*-tests
+  (is (= ["a" "d"] (ida* "a" (goal= "d") distance heuristic neighbors)))
   (is (= ["a" "d" "e" "f" "c" "j" "k"] (ida* "a" (goal= "k") distance heuristic neighbors)))
   (is (= (reverse ["a" "d" "e" "f" "c" "j" "k"]) (ida* "k" (goal= "a") distance reverse-heuristic neighbors))))
