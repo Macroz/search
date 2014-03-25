@@ -20,7 +20,9 @@ Example
 [macroz/search "0.3.0"]
 ```
 
-Using this example problem
+Using this example problem where the optimal path between "a" and "k" is shown with bold.
+
+![Graph](resources/graph.png "Graph")
 
 ```clj
 ;;    a - 2 - b - 3 - c - 1 - j
