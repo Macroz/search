@@ -1,17 +1,19 @@
 search
 ======
 
-This is a Clojure library for search algorithms. 
+This is a Clojure library for graph search algorithms. 
 
-Although it is certainly not yet industrial strength, it intends to be a performant library, meaning that these algorithms are as fast as good Clojure code can be.
+Although it is certainly not yet industrial strength, it intends to be a performant library, meaning that these algorithms are as fast as good Clojure code can be. That journey is only beginning.
 
 Currently implemented
   - [Dijkstra's algorithm](http://en.wikipedia.org/wiki/Dijkstra's_algorithm)
   - [A*](http://en.wikipedia.org/wiki/A*_search_algorithm)
   - [IDA*](http://en.wikipedia.org/wiki/IDA*)
+  - Make it work
 
 Planned
   - [Theta*](http://en.wikipedia.org/wiki/Theta*)
+  - Make it fast
 
 Example
 -------
