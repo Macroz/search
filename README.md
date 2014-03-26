@@ -20,6 +20,8 @@ Example
 
 ```clj
 [macroz/search "0.3.0"]
+
+(use 'search.core)
 ```
 
 Using this example problem where the optimal path between "a" and "k" is shown with bold.
