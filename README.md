@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Macroz/search.png?branch=master)](https://travis-ci.org/Macroz/search)
+
 search
 ======
 
