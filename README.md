@@ -1,6 +1,5 @@
-[![Build Status](https://travis-ci.org/Macroz/search.png?branch=master)](https://travis-ci.org/Macroz/search)
 
-search
+search [![Build Status](https://travis-ci.org/Macroz/search.png?branch=master)](https://travis-ci.org/Macroz/search)
 ======
 
 This is a Clojure library for graph search algorithms. 
